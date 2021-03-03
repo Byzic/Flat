@@ -1,0 +1,19 @@
+help
+show
+insert 3
+Leonid Pupkin
+4.4
+5.2
+45.5
+4
+none
+good
+little
+Солнечный город
+4
+34
+show
+filter_starts_with_name L
+show
+info
+

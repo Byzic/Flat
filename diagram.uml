@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="2338.0" y="1134.0">commands.FilterNameCommand</node>
+    <node x="414.0" y="0.0">utilities.CollectionManager</node>
+    <node x="3384.0" y="1134.0">commands.RemoveLowerKeyCommand</node>
+    <node x="3920.0" y="1123.0">commands.ReplaceIfLowerCommand</node>
+    <node x="536.0" y="1134.0">commands.SaveCommand</node>
+    <node x="0.0" y="1267.0">data.Flat</node>
+    <node x="1296.0" y="1267.0">data.Transport</node>
+    <node x="3652.0" y="1123.0">commands.ReplaceIfGreaterCommand</node>
+    <node x="985.0" y="1267.0">utilities.FileManager</node>
+    <node x="268.0" y="1134.0">commands.ShowCommand</node>
+    <node x="2110.0" y="1145.5">commands.ExecuteScriptCommand</node>
+    <node x="784.0" y="1267.0">data.View</node>
+    <node x="2800.0" y="1134.0">commands.InfoCommand</node>
+    <node x="0.0" y="0.0">utilities.CommandManager</node>
+    <node x="1340.0" y="1145.5">commands.ExitCommand</node>
+    <node x="225.0" y="1267.0">utilities.Creator</node>
+    <node x="483.0" y="1267.0">utilities.Console</node>
+    <node x="1740.0" y="1267.0">data.Furnish</node>
+    <node x="1072.0" y="1123.0">commands.InsertCommand</node>
+    <node x="1534.0" y="1134.0">commands.ClearCommand</node>
+    <node x="804.0" y="1134.0">commands.RemoveKeyCommand</node>
+    <node x="2606.0" y="1145.5">commands.HelpCommand</node>
+    <node x="1954.0" y="1267.0">data.House</node>
+    <node x="3068.0" y="1134.0">commands.RemoveAllByNumberOfRoomsCommand</node>
+    <node x="1993.0" y="848.0">commands.AbstractCommand</node>
+    <node x="1802.0" y="1134.0">commands.CountGreaterThanFurnishCommand</node>
+    <node x="1523.0" y="1267.0">data.Coordinates</node>
+    <node x="0.0" y="1123.0">commands.UpdateCommand</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="commands.InfoCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="2924.0" y="1073.0" />
+      <point x="2118.0625" y="1073.0" />
+      <point x="38.0625" y="82.5" />
+    </edge>
+    <edge source="commands.ShowCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="392.0" y="1043.0" />
+      <point x="2009.3125" y="1043.0" />
+      <point x="-70.6875" y="82.5" />
+    </edge>
+    <edge source="commands.RemoveLowerKeyCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="3508.0" y="1053.0" />
+      <point x="2139.8125" y="1053.0" />
+      <point x="59.8125" y="82.5" />
+    </edge>
+    <edge source="commands.RemoveAllByNumberOfRoomsCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="3216.0" y="1063.0" />
+      <point x="2128.9375" y="1063.0" />
+      <point x="48.9375" y="82.5" />
+    </edge>
+    <edge source="commands.RemoveKeyCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="928.0" y="1063.0" />
+      <point x="2031.0625" y="1063.0" />
+      <point x="-48.9375" y="82.5" />
+    </edge>
+    <edge source="commands.SaveCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="660.0" y="1053.0" />
+      <point x="2020.1875" y="1053.0" />
+      <point x="-59.8125" y="82.5" />
+    </edge>
+    <edge source="commands.ExitCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-27.0" />
+      <point x="1427.0" y="1083.0" />
+      <point x="2052.8125" y="1083.0" />
+      <point x="-27.1875" y="82.5" />
+    </edge>
+    <edge source="commands.ClearCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="1658.0" y="1093.0" />
+      <point x="2063.6875" y="1093.0" />
+      <point x="-16.3125" y="82.5" />
+    </edge>
+    <edge source="commands.UpdateCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="124.0" y="1033.0" />
+      <point x="1998.4375" y="1033.0" />
+      <point x="-81.5625" y="82.5" />
+    </edge>
+    <edge source="commands.CountGreaterThanFurnishCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="1946.0" y="1103.0" />
+      <point x="2074.5625" y="1103.0" />
+      <point x="-5.4375" y="82.5" />
+    </edge>
+    <edge source="commands.InsertCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="1196.0" y="1073.0" />
+      <point x="2041.9375" y="1073.0" />
+      <point x="-38.0625" y="82.5" />
+    </edge>
+    <edge source="commands.HelpCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-27.0" />
+      <point x="2693.0" y="1083.0" />
+      <point x="2107.1875" y="1083.0" />
+      <point x="27.1875" y="82.5" />
+    </edge>
+    <edge source="commands.ExecuteScriptCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-27.0" />
+      <point x="2214.0" y="1103.0" />
+      <point x="2085.4375" y="1103.0" />
+      <point x="5.4375" y="82.5" />
+    </edge>
+    <edge source="commands.ReplaceIfGreaterCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="3776.0" y="1043.0" />
+      <point x="2150.6875" y="1043.0" />
+      <point x="70.6875" y="82.5" />
+    </edge>
+    <edge source="commands.FilterNameCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-38.5" />
+      <point x="2462.0" y="1093.0" />
+      <point x="2096.3125" y="1093.0" />
+      <point x="16.3125" y="82.5" />
+    </edge>
+    <edge source="commands.ReplaceIfLowerCommand" target="commands.AbstractCommand">
+      <point x="0.0" y="-49.5" />
+      <point x="4044.0" y="1033.0" />
+      <point x="2161.5625" y="1033.0" />
+      <point x="81.5625" y="82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="2063.714285714286" y="787.8333333333333" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
