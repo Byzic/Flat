@@ -251,6 +251,8 @@ public class Creator {
                 year=Long.valueOf(scanner.nextLine().trim());
                 if (year.compareTo(0L)<=0 || year.compareTo(846L)>0) throw new IncorrectValueException();
                 t=false;
+            }catch(NumberFormatException e){
+                System.err.println("Формат введенного значения неверен");
             }catch(IncorrectValueException e){
                 System.err.println("Значение задается из диапазона от 0 до 846 включительно");
             }
@@ -271,7 +273,10 @@ public class Creator {
                 floors=Long.valueOf(scanner.nextLine().trim());
                 if (floors.compareTo(0L)<=0 ) throw new IncorrectValueException();
                 t=false;
-            }catch(IncorrectValueException e){
+            }catch(NumberFormatException e){
+                System.err.println("Формат введенного значения неверен");
+            }
+            catch(IncorrectValueException e){
                 System.err.println("Значение должно быть больше 0");
             }
         }

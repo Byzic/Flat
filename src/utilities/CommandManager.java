@@ -77,7 +77,7 @@ public class CommandManager {
     public boolean help (String argument){
         if (helpCommand.execute(argument)) {
             for (AbstractCommand command : commands) {
-                System.out.println("\u001B[30m"+"\u001B[33m"+command.getName()+"\u001B[33m"+"\u001B[30m" + ": " + command.getDescription());
+                System.out.println("\u001B[37m"+"\u001B[33m"+command.getName()+"\u001B[33m"+"\u001B[37m" + ": " + command.getDescription());
             }
             return true;
         } else return false;
@@ -203,6 +203,7 @@ public class CommandManager {
     public boolean countFurnish(String argument){
         return countFurnishCommand.execute(argument);
     }
+
 
 
 }

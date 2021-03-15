@@ -22,7 +22,7 @@ public class ClearCommand extends AbstractCommand{
         try {
             if (!argument.isEmpty())throw new IncorrectValueException();
         collectionManager.clear();
-        System.out.println("\u001B[30m"+"\u001B[33m"+"Коллекция удалена"+"\u001B[33m"+"\u001B[30m");
+        System.out.println("\u001B[37m"+"\u001B[33m"+"Коллекция удалена"+"\u001B[33m"+"\u001B[37m");
         return true;
     }
          catch (

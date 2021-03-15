@@ -24,7 +24,7 @@ public class CountGreaterThanFurnishCommand extends AbstractCommand {
         try{
             if (argument.isEmpty()) throw new EmptyArgumentException();
             count=collectionManager.countFurnish(argument);
-            System.out.println(count+"\u001B[30m"+"\u001B[33m"+"-столько элементов имеет значение furnish болше заданного"+"\u001B[33m"+"\u001B[30m");
+            System.out.println(count+"\u001B[37m"+"\u001B[33m"+"-столько элементов имеет значение furnish болше заданного"+"\u001B[33m"+"\u001B[37m");
             return true;
         }catch (EmptyArgumentException e){
             System.err.println("У этой команды должен быть аргумент(значение furnish)");

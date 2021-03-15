@@ -25,7 +25,7 @@ public class RemoveAllByNumberOfRoomsCommand extends AbstractCommand {
             if (argument.isEmpty()) throw new EmptyArgumentException();
             Integer numberOfRooms=Integer.parseInt(argument);
             int i=collectionManager.removeAllByNumber(numberOfRooms);
-            System.out.println("\u001B[30m"+"\u001B[33m"+"Было успешно удалено "+i+" квартир с количеством комнат "+numberOfRooms+"\u001B[33m"+"\u001B[30m");
+            System.out.println("\u001B[37m"+"\u001B[33m"+"Было успешно удалено "+i+" квартир с количеством комнат "+numberOfRooms+"\u001B[33m"+"\u001B[37m");
             return true;
         }
         catch (EmptyArgumentException e) {

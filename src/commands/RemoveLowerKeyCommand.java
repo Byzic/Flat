@@ -22,7 +22,7 @@ public class RemoveLowerKeyCommand extends AbstractCommand {
             if (argument.isEmpty()) throw new EmptyArgumentException();
             Integer key=Integer.parseInt(argument);
             int i=collectionManager.removeLowerKey(key);
-            System.out.println("\u001B[30m"+"\u001B[33m"+"Было удалено "+i+" квартир с ключом меньше "+key+"\u001B[33m"+"\u001B[30m");
+            System.out.println("\u001B[37m"+"\u001B[33m"+"Было удалено "+i+" квартир с ключом меньше "+key+"\u001B[33m"+"\u001B[37m");
             return true;
         }catch (EmptyArgumentException e) {
             System.err.println("У этой команды должен быть аргумент(ключ для удаления элементов)" );

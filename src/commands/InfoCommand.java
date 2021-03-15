@@ -26,7 +26,7 @@ public class InfoCommand extends AbstractCommand {
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty())throw new IncorrectValueException();
-            System.out.println("Информация о коллекции");
+            System.out.println("\u001B[37m"+"\u001B[33m"+"Информация о коллекции"+"\u001B[33m"+"\u001B[37m");
             LocalDateTime lastInitTime = collectionManager.getLastInitTime();
             String lastInitTimeString = (lastInitTime == null) ? "в данной сессии инициализации еще не происходило" :
                     lastInitTime.toLocalDate().toString() + " " + lastInitTime.toLocalTime().toString();

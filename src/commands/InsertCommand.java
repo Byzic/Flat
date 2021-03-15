@@ -30,12 +30,12 @@ public class InsertCommand extends AbstractCommand {
             int key =Integer.parseInt(argument);//доделать проверку на наличие уже такого ключа в коллекции
             collectionManager.Key(key);
             collectionManager.insertNew(key, new Flat(collectionManager.newId(), creator.newName(), creator.newCoordinates(),  LocalDateTime.now(), creator.newArea(),creator.newNumberOfRooms(),creator.newFurnish(),creator.newView(),creator.newTransport(),creator.newHouse()));
-            System.out.println("\u001B[30m"+"\u001B[33m"+"Элемент с заданным ключом успешно добавлен"+"\u001B[33m"+"\u001B[30m");
+            System.out.println("\u001B[37m"+"\u001B[33m"+"Элемент с заданным ключом успешно добавлен"+"\u001B[33m"+"\u001B[37m");
             return true;}
         catch (EmptyArgumentException e) {
             System.err.println("У этой команды должен быть аргумент(Ключ для добавления нового значения)" );
         }catch (NumberFormatException e){
-            System.err.println("Формат введенного аргумента неверен. Он должен быть целым.");
+            System.err.println("Формат введенного аргумента неверен. Он должен быть целым....");
         }catch(NullPointerException e){
             System.err.println("Элемент с таким ключом уже существует");
         }
