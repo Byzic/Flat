@@ -11,7 +11,6 @@ import java.util.List;
 public class CommandManager {
     private final int maxCommandSize = 14;
 
-    private String[] commandHistory = new String[maxCommandSize];//переменная для истории команд
     private List<AbstractCommand> commands = new ArrayList<>();//массив с командами
     private AbstractCommand helpCommand;
     private AbstractCommand infoCommand;
