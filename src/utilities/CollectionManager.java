@@ -130,7 +130,7 @@ public class CollectionManager {
         try{
             if (!hashtable.containsKey(key)) throw new KeyException();
             hashtable.remove(key);
-            System.out.println("\u001B[30m"+"\u001B[33m"+"Элемент с ключом "+ key+" успешно удален"+"\u001B[33m"+"\u001B[30m");
+            System.out.println("\u001B[37m"+"\u001B[33m"+"Элемент с ключом "+ key+" успешно удален"+"\u001B[33m"+"\u001B[37m");
         }catch (KeyException e){
             System.err.println("Элемента с таким ключом не существует");
         }
@@ -190,7 +190,7 @@ public class CollectionManager {
                 i=0;
             }
         }
-        if (i==1){System.out.println("\u001B[30m"+"\u001B[33m"+"Нет элементов, начинающихся на такую строку"+"\u001B[33m"+"\u001B[30m");}
+        if (i==1){System.out.println("\u001B[37m"+"\u001B[33m"+"Нет элементов, начинающихся на такую строку"+"\u001B[33m"+"\u001B[37m");}
     }
 
     /**
@@ -202,10 +202,10 @@ public class CollectionManager {
         try{
             if (hashtable.get(key).compareTo(flat)<0){
                 hashtable.put(key,flat);
-                System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" была успешно заменена"+"\u001B[33m"+"\u001B[30m");
+                System.out.println("\u001B[37m"+"\u001B[33m"+"Квартира с ключом "+key+" была успешно заменена"+"\u001B[33m"+"\u001B[37m");
 
             }
-            else {System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как меньше уже существующей"+"\u001B[33m"+"\u001B[30m");
+            else {System.out.println("\u001B[37m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как меньше уже существующей"+"\u001B[33m"+"\u001B[37m");
         }}catch(NullPointerException e){
             System.err.println("Элемента с таким ключом не существует");
         }
@@ -255,7 +255,7 @@ public class CollectionManager {
         if (hashtable.get(key).compareTo(flat)>0){
                 hashtable.put(key,flat);
                 System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" была успешно заменена"+"\u001B[33m"+"\u001B[30m");
-        }else {System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как меньше уже существующей");}
+        }else {System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как больше уже существующей");}
 
     }
 
@@ -266,12 +266,14 @@ public class CollectionManager {
      */
     public int countFurnish(String furnish){
         int count=0;
+
         for (Map.Entry<Integer, Flat> e : hashtable.entrySet()) {
-            if (e.getValue().getFurnish().compareTo(Furnish.valueOf(furnish))>0) {
+            if (e.getValue().getFurnish().compareTo(Furnish.valueOf(furnish.toUpperCase()))>0) {
 
                 count+=1;
             }
         }
         return count;
     }
+
 }

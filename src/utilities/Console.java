@@ -33,16 +33,21 @@ public class Console {
         int status=0;
         try{
         do{
-            System.out.println("Введите желаемую команду");
+            System.out.println("\u001B[37m"+"\u001B[36m"+"Введите желаемую команду"+"\u001B[36m"+"\u001B[37m");
             userCommand = (scanner.nextLine().trim() + " ").split(" ", 2);
             userCommand[1] = userCommand[1].trim();
+            if (userCommand[0].equals("нет")) System.exit(0);
             status=executeCommand(userCommand);
             System.out.println();
 
         }while(status!=2);
         }catch(NoSuchElementException e) {
+            commandManager.save("");
+            System.out.println("Программа завершилась с охранением коллекции в файл");
+
         }
         }
+
 
     /**
      * Метод для считывания комманд из файла
@@ -53,7 +58,9 @@ public class Console {
     private int scriptMode(String fileName) {
         String[] userCommand = {"", ""};
         scriptFileNames.add(fileName);
-        try (Scanner scanner2 = new Scanner(new File(fileName))) {
+        File file=new File(fileName);
+        if (!file.canRead()){System.out.println("У указанного файла нет прав на чтение, необходимо  установить");}
+        try (Scanner scanner2 = new Scanner(file)) {
             if (!scanner2.hasNext()) throw new NoSuchElementException();
             Scanner oldScanner = creator.getScanner();
             int status=0;
@@ -61,7 +68,7 @@ public class Console {
             do{
                 userCommand = (scanner2.nextLine().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
-                System.out.println("\u001B[30m"+"\u001B[33m"+" Выполняется команда "+userCommand[0]+"\u001B[33m"+"\u001B[30m");
+                System.out.println("\u001B[37m"+"\u001B[33m"+" Выполняется команда "+userCommand[0]+"\u001B[33m"+"\u001B[37m");
                 if (userCommand[0].equals("execute_script")){
                     for (String name: scriptFileNames){
                         if (name.equals(userCommand[1])) throw new ScriptRecursionException();
@@ -142,7 +149,7 @@ public class Console {
                 if (!commandManager.filterName(userCommand[1])) return 1;
                 break;
             default:
-                System.out.println("Команда "+userCommand[1]+" не найдена. Введите help для справки.");
+                System.out.println("Команда "+userCommand[0]+" не найдена. Введите help для справки.");
         }
         return 0;
     }

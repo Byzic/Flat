@@ -101,7 +101,7 @@ public class Flat implements Comparable<Flat> {
     @Override
     public String toString() {
         String info = "";
-        info += "\u001B[30m"+"\u001B[36m"+"Квартира № " + id+"\u001B[36m"+"\u001B[30m";
+        info += "\u001B[37m"+"\u001B[36m"+"Квартира № " + id+"\u001B[36m"+"\u001B[37m";
         info += " (дата занесения в протокол " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n Имя владельца: " + name;
         info += "\n Местоположение: " + coordinates;
