@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import data.Flat;
-import exceptions.FileException;
+
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -39,11 +39,10 @@ public class FileManager {
             }
         try ( OutputStreamWriter pw = new OutputStreamWriter(new FileOutputStream(System.getenv().get(envVariable)))){
             File file=new File(System.getenv().get(envVariable));
-            if (!file.canWrite()){throw new FileException();}
+
             pw.write(gson.toJson(collection));
             System.out.println("Коллекция успешно сохранена в файл!");
-        }catch(FileException e){
-            System.err.println("Нельзя осуществить запись в файл, так как нет прав на запись");
+
         } catch (Exception e) {
             System.out.println();
 
@@ -62,7 +61,7 @@ public class FileManager {
             }
             try (FileReader fileScanner = new FileReader(file)){
 
-                Hashtable<Integer,Flat> hashtable=new Hashtable<Integer,Flat>();
+                //Hashtable<Integer,Flat> hashtable=new Hashtable<Integer,Flat>();
                 Type collectionType = new TypeToken<Hashtable<Integer,Flat>>() {}.getType();
                 Hashtable<Integer,Flat> collection = gson.fromJson(fileScanner,collectionType);
                 System.out.println("\u001B[37m"+"\u001B[33m"+"Коллекция успешно загружена!"+"\u001B[33m"+"\u001B[37m");
