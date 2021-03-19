@@ -36,7 +36,7 @@ public class Console {
             System.out.println("\u001B[37m"+"\u001B[36m"+"Введите желаемую команду"+"\u001B[36m"+"\u001B[37m");
             userCommand = (scanner.nextLine().trim() + " ").split(" ", 2);
             userCommand[1] = userCommand[1].trim();
-            if (userCommand[0].equals("нет")) System.exit(0);
+
             status=executeCommand(userCommand);
             System.out.println();
 
@@ -59,8 +59,11 @@ public class Console {
         String[] userCommand = {"", ""};
         scriptFileNames.add(fileName);
         File file=new File(fileName);
-        if (!file.canRead()){System.out.println("У указанного файла нет прав на чтение, необходимо  установить");}
+        if (file.exists() & !file.canRead()){System.out.println("У указанного файла нет прав на чтение, необходимо  установить");
+            return 1;}
+        //if (!file.canRead()){System.out.println("У указанного файла нет прав на чтение, необходимо  установить");}
         try (Scanner scanner2 = new Scanner(file)) {
+
             if (!scanner2.hasNext()) throw new NoSuchElementException();
             Scanner oldScanner = creator.getScanner();
             int status=0;
@@ -81,11 +84,11 @@ public class Console {
 
 
         }catch(FileNotFoundException e){
-            System.err.println("Файл со скриптом не найден :(");
+            System.out.println("Файл со скриптом не найден :(");
         }catch(NoSuchElementException e){
             System.err.println("Файл пуст...");
         }catch(ScriptRecursionException e){
-            System.err.println("Скрипты не вызываются рекурсивно");}
+            System.out.println("Скрипты не вызываются рекурсивно");}
         return 1;
 
 

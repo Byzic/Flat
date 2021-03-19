@@ -21,7 +21,7 @@ public class ReplaceIfLowerCommand extends AbstractCommand {
             if (argument.isEmpty()) throw new EmptyArgumentException();
             Integer key=Integer.parseInt(argument);
             collectionManager.checkKey(key);
-            collectionManager.replaceIfLower(key,new Flat(collectionManager.newId(),creator.newName(), creator.newCoordinates(),  LocalDateTime.now(), creator.newArea(),creator.newNumberOfRooms(),creator.newFurnish(),creator.newView(),creator.newTransport(),creator.newHouse()));
+            collectionManager.replaceIfLower(key);
             return true;
         }catch (EmptyArgumentException e) {
             System.err.println("У этой команды должен быть аргумент(ключ для удаления элементов)" );

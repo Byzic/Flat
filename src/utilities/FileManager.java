@@ -31,22 +31,29 @@ public class FileManager {
      * Запись коллекции в файл
      * @param collection -коллекция, которую нужно записать
      */
-    public void writeCollection(Hashtable collection){
+    public void writeCollection(Hashtable collection) {
         if (System.getenv().get(envVariable) != null) {
             if (!file.canWrite()) {
-                System.out.println("\u001B[37m"+"\u001B[31m"+"Недостаточно прав для записи в файл. Добавьте права на запись и запустите программу вновь"+"\u001B[31m"+"\u001B[37m");
-                System.exit(0);
-            }
-        try ( OutputStreamWriter pw = new OutputStreamWriter(new FileOutputStream(System.getenv().get(envVariable)))){
-            File file=new File(System.getenv().get(envVariable));
+                System.out.println("\u001B[37m"+"\u001B[31m"+"Недостаточно прав для записи в файл. Добавьте права на запись "+"\u001B[31m"+"\u001B[37m");
+                try(OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(new File("/home/s311701/prog5/lib/file2")))){
+                    out.write(gson.toJson(collection));
+                    System.out.println("Не переживайте. Мы записали вашу коллекцию в новый файл: "+"/home/s311701/prog5/lib/file2");
+                }catch(Exception e){
 
-            pw.write(gson.toJson(collection));
-            System.out.println("Коллекция успешно сохранена в файл!");
+                }
 
-        } catch (Exception e) {
-            System.out.println();
+            }else{
+                try ( OutputStreamWriter pw = new OutputStreamWriter(new FileOutputStream(System.getenv().get(envVariable)))){
+                    File file=new File(System.getenv().get(envVariable));
 
-        }} else System.out.println("Системная переменная с загрузочным файлом не найдена!");
+                    pw.write(gson.toJson(collection));
+                    System.out.println("Коллекция успешно сохранена в файл!");
+
+                } catch (Exception e) {
+                    System.out.println();
+
+                }}
+        } else System.out.println("Системная переменная с загрузочным файлом не найдена!");
     }
 
     /**
@@ -55,7 +62,7 @@ public class FileManager {
      */
     public Hashtable<Integer, Flat> readCollection()  {
         if (System.getenv().get(envVariable) != null) {
-            if (!file.canRead()) {
+            if (file.exists() & !file.canRead()) {
                 System.out.println("\u001B[37m"+"\u001B[31m"+"Недостаточно прав для чтения данных из файла. Добавьте права на чтение и запустите программу вновь"+"\u001B[31m"+"\u001B[37m");
                 System.exit(0);
             }
@@ -65,6 +72,7 @@ public class FileManager {
                 Type collectionType = new TypeToken<Hashtable<Integer,Flat>>() {}.getType();
                 Hashtable<Integer,Flat> collection = gson.fromJson(fileScanner,collectionType);
                 System.out.println("\u001B[37m"+"\u001B[33m"+"Коллекция успешно загружена!"+"\u001B[33m"+"\u001B[37m");
+                if (collection==null) return new Hashtable<>();
                 return collection;
             } catch (FileNotFoundException e) {
                 System.err.println("Файл с таким именем не найден :(");

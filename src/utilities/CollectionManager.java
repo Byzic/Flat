@@ -15,9 +15,11 @@ public class CollectionManager {
     private Hashtable<Integer, Flat> hashtable=new Hashtable<>();
     private FileManager fileManager;
     private LocalDateTime lastInitTime;
+    private Creator creator;
 
-    public CollectionManager(FileManager fileManager) {
+    public CollectionManager(FileManager fileManager,Creator creator) {
         this.fileManager=fileManager;
+        this.creator=creator;
     }
 
     /**
@@ -44,8 +46,10 @@ public class CollectionManager {
     public String getStringElements(){
         String strElem="";
         if (hashtable.isEmpty()) return "Коллекция пуста!!!";
-        for (Flat f: hashtable.values()){
-            strElem+=f.toString()+"\n";
+        for(Map.Entry<Integer, Flat> e : hashtable.entrySet()){
+            Flat f=e.getValue();
+            Integer k=e.getKey();
+            strElem+="КЛЮЧ:"+k+"\n"+f.toString()+"\n";
         }
         return strElem;
 
@@ -196,16 +200,16 @@ public class CollectionManager {
     /**
      * Заменяет значение по ключу, если оно больше
      * @param key ключ
-     * @param flat значение
      */
-    public void replaceIfGreater(Integer key,Flat flat){
+    public void replaceIfGreater(Integer key){
         try{
+            Flat flat= new Flat(hashtable.get(key).getID(),creator.newName(), creator.newCoordinates(),  LocalDateTime.now(), creator.newArea(),creator.newNumberOfRooms(),creator.newFurnish(),creator.newView(),creator.newTransport(),creator.newHouse());
             if (hashtable.get(key).compareTo(flat)<0){
                 hashtable.put(key,flat);
                 System.out.println("\u001B[37m"+"\u001B[33m"+"Квартира с ключом "+key+" была успешно заменена"+"\u001B[33m"+"\u001B[37m");
 
             }
-            else {System.out.println("\u001B[37m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как меньше уже существующей"+"\u001B[33m"+"\u001B[37m");
+            else {System.out.println("\u001B[37m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как меньше или равна уже существующей"+"\u001B[33m"+"\u001B[37m");
         }}catch(NullPointerException e){
             System.err.println("Элемента с таким ключом не существует");
         }
@@ -251,9 +255,10 @@ public class CollectionManager {
      * @param key ключ
      * @param flat значение
      */
-    public void replaceIfLower(Integer key,Flat flat){
+    public void replaceIfLower(Integer key){
+        Flat flat= new Flat(hashtable.get(key).getID(),creator.newName(), creator.newCoordinates(),  LocalDateTime.now(), creator.newArea(),creator.newNumberOfRooms(),creator.newFurnish(),creator.newView(),creator.newTransport(),creator.newHouse());
         if (hashtable.get(key).compareTo(flat)>0){
-                hashtable.put(key,flat);
+            hashtable.put(key,flat);
                 System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" была успешно заменена"+"\u001B[33m"+"\u001B[30m");
         }else {System.out.println("\u001B[30m"+"\u001B[33m"+"Квартира с ключом "+key+" не была заменена, так как больше уже существующей");}
 

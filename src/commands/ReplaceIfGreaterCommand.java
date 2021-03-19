@@ -1,11 +1,10 @@
 package commands;
 
 import exceptions.EmptyArgumentException;
-import data.Flat;
 import utilities.CollectionManager;
 import utilities.Creator;
 
-import java.time.LocalDateTime;
+
 
 /**
  * Класс команды "replace_if_greater". Удаляет, если элемент меньше
@@ -29,7 +28,7 @@ public class ReplaceIfGreaterCommand extends AbstractCommand {
             if (argument.isEmpty()) throw new EmptyArgumentException();
             Integer key=Integer.parseInt(argument);
             collectionManager.checkKey(key);
-            collectionManager.replaceIfGreater(key,new Flat(collectionManager.newId(),creator.newName(), creator.newCoordinates(),  LocalDateTime.now(), creator.newArea(),creator.newNumberOfRooms(),creator.newFurnish(),creator.newView(),creator.newTransport(),creator.newHouse()));
+            collectionManager.replaceIfGreater(key);
             return true;
         }catch (EmptyArgumentException e) {
             System.err.println("У этой команды должен быть аргумент(ключ для удаления элементов)" );

@@ -16,10 +16,10 @@ public class Main {
         CollectionManager collectionManager;
         final String myenv="FLAT_FILE";
         Scanner scanner = new Scanner(System.in);
-        fileManager=new FileManager(myenv);
-        collectionManager = new CollectionManager(fileManager);
-        collectionManager.loadCollection();
         Creator creator=new Creator(scanner);
+        fileManager=new FileManager(myenv);
+        collectionManager = new CollectionManager(fileManager, creator);
+        collectionManager.loadCollection();
         CommandManager commandManager = new CommandManager(new HelpCommand(),
                 new InfoCommand(collectionManager),
                 new ShowCommand(collectionManager),
